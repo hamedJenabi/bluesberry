@@ -21,13 +21,18 @@
   max-width: 40rem;
   padding: 10px;
   border: 1px solid grey;
-  height: 50vh;
+  height: 45vh;
   overflow: scroll;
   border-radius: 5px;
   outline: none;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  li {
+    color: #000;
+    // dot gone
+    list-style-type: none;
+  }
 }
 .button {
   color: black;
@@ -59,7 +64,6 @@
   &:active {
     background-color: blue;
     cursor: pointer;
-    color: white;
     transition: 300ms;
     outline: none;
     border: 1px solid #000000;

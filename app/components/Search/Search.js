@@ -54,6 +54,24 @@ function groupArrayIntoObjects(array, itemsPerObject, keys) {
 
   return resultArray;
 }
+const List = ({ items, onClick }) => {
+  const handleClick = (item) => {
+    onClick(item);
+  };
+  return (
+    <ul className={styles.results}>
+      {items.map((item, index) => (
+        <li
+          key={index}
+          className={styles.button}
+          onClick={() => handleClick(item)}
+        >
+          <p>{item}</p>
+        </li>
+      ))}
+    </ul>
+  );
+};
 
 export default function Search({ products }) {
   const [searchTerm, setSearchTerm] = useState("");
@@ -67,6 +85,9 @@ export default function Search({ products }) {
     const results = products.data.filter((item) =>
       item.toString().toLowerCase().includes(searchText.toLowerCase())
     );
+    if (!searchTerm) {
+      setProductName("");
+    }
     if (searchText.length > 2) {
       setSearchResults(results);
     }
@@ -106,18 +127,7 @@ export default function Search({ products }) {
           onInput={handleSearch}
         />
 
-        <div className={styles.results}>
-          {searchResults &&
-            searchResults.map((item) => (
-              <button
-                onClick={() => handleResultClick(item)}
-                className={styles.button}
-                key={item}
-              >
-                {item}
-              </button>
-            ))}
-        </div>
+        <List items={searchResults} onClick={handleResultClick} />
 
         <Camera />
       </div>

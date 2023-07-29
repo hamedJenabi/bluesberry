@@ -21,7 +21,7 @@ const options = [
 // eslint-disable-next-line @next/next/no-async-client-component
 export default async function Participate() {
   const products = await fetchProducts({ category: "electronics" });
-  console.log("products", products);
+
   return (
     <main className={styles.main}>
       <div className={styles.card}>
