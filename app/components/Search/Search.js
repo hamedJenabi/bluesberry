@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+
 import styles from "./Search.module.scss";
 import BeautifulDropdown from "../DropDown/DropDown";
 import { useState, useEffect } from "react";
@@ -77,8 +77,12 @@ export default function Search({ products }) {
 
   const handleResultClick = (item) => {
     setProductName(item);
-    setSearchResults([]);
   };
+  useEffect(() => {
+    if (!searchTerm) {
+      setSearchResults([]);
+    }
+  }, [searchTerm]);
 
   return (
     <main className={styles.main}>
@@ -103,15 +107,16 @@ export default function Search({ products }) {
         />
 
         <div className={styles.results}>
-          {searchResults.map((item) => (
-            <button
-              onClick={() => handleResultClick(item)}
-              className={styles.button}
-              key={item}
-            >
-              {item}
-            </button>
-          ))}
+          {searchResults &&
+            searchResults.map((item) => (
+              <button
+                onClick={() => handleResultClick(item)}
+                className={styles.button}
+                key={item}
+              >
+                {item}
+              </button>
+            ))}
         </div>
 
         <Camera />
