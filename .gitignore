@@ -23,6 +23,8 @@ sw.js
 **/public/sw.js.map
 **/public/workbox-*.js.map
 **/public/worker-*.js.map
+# add sw.js.map if you are using sourcemaps in your production build:
+**/public/sw.js.map
 # misc
 .DS_Store
 *.pem
@@ -34,6 +36,7 @@ yarn-error.log*
 
 # local env files
 .env*.local
+.env
 
 # vercel
 .vercel
