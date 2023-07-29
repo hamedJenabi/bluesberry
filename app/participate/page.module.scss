@@ -1,0 +1,17 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6rem;
+  min-height: 100vh;
+}
+
+.card {
+  padding: 1rem 1.2rem;
+  width: 350px;
+  height: 650px;
+  border-radius: var(--border-radius);
+  background: white;
+  border: 1px solid rgba(var(--card-border-rgb), 0);
+}

@@ -1,0 +1,264 @@
+$white: #fff;
+$milk: rgb(250, 248, 248);
+$paddingRight: 10px;
+$header: 60px;
+$mediumFont: 40px;
+$smallFont: 20px;
+$navy: #000460;
+$blue: #3a3d41;
+$light: #8a9099;
+$darkblue: #5a5f66;
+$xxs: 5px;
+$xs: 10px;
+$sm: 16px;
+$md: 26px;
+$lg: 36px;
+$xl: 46px;
+$xxl: 56px;
+$breakpointSm: 370px;
+$breakpointMd: 760px;
+$breakpointLg: 1280px;
+$boxShadow: 0 22px 45px 0 rgba(103, 82, 82, 0.11);
+$Paragraph: "Open Sans", Roboto, -apple-system, BlinkMacSystemFont, Segoe UI,
+  Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+  sans-serif;
+
+@mixin input {
+  border: none;
+  background-color: inherit;
+  width: 300px;
+  height: $xxl;
+  margin: $sm 0 !important;
+  color: white !important;
+  @media (min-width: $breakpointMd) {
+    @media (min-width: $breakpointMd) {
+      width: 400px;
+    }
+    label {
+      color: white;
+    }
+    fieldset {
+      border-radius: 30px !important;
+      border: 1px solid white;
+      color: white;
+    }
+    input::placeholder {
+      /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: rgb(143, 134, 134);
+      opacity: 1; /* Firefox */
+    }
+    input {
+      color: white;
+      font: 1em/1.25em Arial, Helvetica, sans-serif;
+    }
+  }
+}
+@mixin button {
+  color: $navy;
+  background-color: transparent;
+  font-family: Poiret One, Roboto, -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+    sans-serif;
+  font-size: 16px;
+  box-shadow: 15px 30px -10px rgba(0, 0, 0, 0.35);
+  border: 0.5px solid #3e5b63;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 1px;
+  width: 170px;
+  height: 50px;
+  margin: $sm 0;
+  border-radius: 4px !important;
+  letter-spacing: 2px;
+  width: 100%;
+  &:hover {
+    background-color: #198075;
+    cursor: pointer;
+    color: #dbebe9;
+    transition: 300ms;
+    border: none;
+  }
+  &:active {
+    background-color: $blue;
+    cursor: pointer;
+    color: $white;
+    transition: 300ms;
+    outline: none;
+    border: 1px solid #000000;
+  }
+  &:focus {
+    outline: none;
+    @include focus();
+    &::after {
+      margin: -10px !important;
+      border-radius: 4px !important;
+    }
+  }
+  @media (min-width: $breakpointMd) {
+    // width: 190px;
+  }
+}
+
+@mixin error {
+  font-size: 16px;
+  color: rgb(192, 37, 37);
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@mixin fade-in-fast {
+  opacity: 1;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 300ms;
+}
+@mixin fade-in-slow {
+  opacity: 1;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 1000ms;
+}
+@keyframes anime {
+  0% {
+    left: 0px;
+    top: 0px;
+  }
+  100% {
+    left: 0px;
+    top: 30px;
+  }
+}
+@mixin animation {
+  position: relative;
+
+  animation-name: anime;
+  animation-duration: 500ms;
+  animation-direction: reverse;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.01);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@mixin pulse {
+  animation: pulse 1s infinite;
+  animation-timing-function: linear;
+}
+@mixin textLink {
+  font-family: Poiret One, Roboto, -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+    sans-serif;
+  cursor: pointer;
+  color: $navy;
+}
+@mixin modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin focus {
+  outline: none;
+
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    border: 1px dashed $blue;
+  }
+}
+
+@mixin limitLines($lines) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+}
+
+@mixin text-xs() {
+  font-size: $xs;
+  font-weight: 200;
+}
+
+@mixin text-sm() {
+  font-size: $sm;
+  font-weight: 200;
+}
+
+@mixin text-default() {
+  font-size: $md;
+  font-weight: 200;
+}
+
+@mixin text-md() {
+  font-size: $md;
+  font-weight: 200;
+}
+
+@mixin text-lg() {
+  font-size: $lg;
+  font-weight: 200;
+}
+
+@mixin text-h1() {
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 1.19;
+}
+
+@mixin text-h2() {
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 1.167;
+}
+
+@mixin text-h3() {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+@mixin text-h4() {
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.214;
+}
+
+@mixin text-h5() {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.333;
+}
+
+@mixin text-h6() {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+@mixin text-h7() {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.444;
+}
