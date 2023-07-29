@@ -1,10 +1,13 @@
 import Image from "next/image";
 import styles from "./page.module.scss";
 import Header from "../components/Header/Header";
-import BeautifulDropdown from "../components/DropDown/DropDown";
+
+import Search from "../components/Search/Search";
 
 const fetchProducts = async ({ category, subCategory }) => {
-  const res = await fetch("https://fakestoreapi.com/products");
+  const res = await fetch(
+    "https://heisse-preise.io/data/latest-canonical.billa.compressed.json"
+  );
   const data = await res.json();
   return data;
 };
@@ -14,20 +17,16 @@ const options = [
   { label: "Option 3", value: "option3" },
   { label: "Option 4", value: "option4" },
 ];
+
+// eslint-disable-next-line @next/next/no-async-client-component
 export default async function Participate() {
-  const products = await fetchProducts({
-    category: "electronics",
-    subCategory: "mobile",
-  });
+  const products = await fetchProducts({ category: "electronics" });
+  console.log("products", products);
   return (
     <main className={styles.main}>
       <div className={styles.card}>
         <Header />
-        Participates
-        <BeautifulDropdown
-          options={options}
-          onSelect={(e) => console.log(e.target.value)}
-        />
+        <Search products={products} />
       </div>
     </main>
   );

@@ -1,0 +1,85 @@
+.wrapper {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+}
+.input {
+  width: 100%;
+  max-width: 40rem;
+  padding: 1rem;
+  border: 1px solid black;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  border-radius: 5px;
+  outline: none;
+}
+.results {
+  width: 100%;
+  max-width: 40rem;
+  padding: 10px;
+  border: 1px solid grey;
+  height: 50vh;
+  overflow: scroll;
+  border-radius: 5px;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.button {
+  color: black;
+  background-color: transparent;
+  font-family: Poiret One, Roboto, -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+    sans-serif;
+  font-size: 16px;
+  box-shadow: 15px 30px -10px rgba(0, 0, 0, 0.35);
+  border: 0.5px solid #3e5b63;
+  text-align: start;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 1px;
+  width: 170px;
+  height: 800px;
+  padding: 1rem 0.5rem;
+  border-radius: 4px !important;
+  letter-spacing: 2px;
+  width: 100%;
+
+  &:hover {
+    background-color: #198075;
+    cursor: pointer;
+    color: #dbebe9;
+    transition: 300ms;
+    border: none;
+  }
+  &:active {
+    background-color: blue;
+    cursor: pointer;
+    color: white;
+    transition: 300ms;
+    outline: none;
+    border: 1px solid #000000;
+  }
+  &:focus {
+    outline: none;
+    &::after {
+      margin: -10px !important;
+      border-radius: 4px !important;
+    }
+  }
+}
+
+.cameraWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.img {
+  &:hover {
+    cursor: pointer;
+  }
+}
