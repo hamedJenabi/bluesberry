@@ -1,5 +1,4 @@
 "use client";
-
 import styles from "./Search.module.scss";
 import BeautifulDropdown from "../DropDown/DropDown";
 import { useState, useEffect } from "react";
